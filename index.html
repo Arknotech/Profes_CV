@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional CV Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: linear-gradient(to bottom, #f0f8ff, #ffffff);
+      --text-light: #1f2937;
+      --bg-dark: #111827;
+      --text-dark: #f9fafb;
+      --accent: #2563eb;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1rem 2rem;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: inherit;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+
+    .hero .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .hero .buttons button {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: inherit;
+      border: 2px solid currentColor;
+    }
+
+    .tech-stack {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: white;
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark .tech-stack {
+      background: #1f2937;
+      color: var(--text-dark);
+    }
+
+    .tech-stack h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tech-card {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    body.dark .tech-card {
+      background: #374151;
+    }
+
+    .contact {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: #f0f8ff;
+    }
+
+    body.dark .contact {
+      background: #111827;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="toggle-btn" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+  </header>
+
+  <section class="hero">
+    <h1>Hi, I'm <span>Carson Gutierrez</span></h1>
+    <p>A Computer Science Student learning software and AI engineering, data analytics, and modern web technologies.</p>
+    <div class="buttons">
+      <button class="btn-primary">Download CV</button>
+      <button class="btn-outline">Contact Me</button>
+    </div>
+  </section>
+
+  <section class="tech-stack">
+    <h2>Tech Stack</h2>
+    <div class="tech-grid">
+      <div class="tech-card">HTML</div>
+      <div class="tech-card">CSS</div>
+      <div class="tech-card">JavaScript</div>
+      <div class="tech-card">React</div>
+      <div class="tech-card">Tailwind CSS</div>
+      <div class="tech-card">Node.js</div>
+      <div class="tech-card">Python</div>
+      <div class="tech-card">Git</div>
+      <div class="tech-card">Docker</div>
+      <div class="tech-card">SQL</div>
+      <div class="tech-card">Next.js</div>
+      <div class="tech-card">Firebase</div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Let's Connect</h2>
+    <p>Feel free to reach out or check my work online.</p>
+    <div class="social-links">
+      <a href="mailto:your.email@example.com">📧</a>
+      <a href="https://github.com/yourusername" target="_blank">💻</a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank">🔗</a>
+      <a href="https://your-portfolio.com" target="_blank">🌐</a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Arcnoshe Tech. All Rights Reserved.
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      toggleBtn.textContent = body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
